@@ -1,7 +1,9 @@
 package keeper
 
 import (
-  // this line is used by starport scaffolding # 1
+	"github.com/PiotrTrzpil/nameservice/x/nameservice/types"
+	// this line is used by starport scaffolding # 1
+
 	abci "github.com/tendermint/tendermint/abci/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -12,7 +14,11 @@ import (
 func NewQuerier(k Keeper) sdk.Querier {
 	return func(ctx sdk.Context, path []string, req abci.RequestQuery) ([]byte, error) {
 		switch path[0] {
-    // this line is used by starport scaffolding # 2
+		// this line is used by starport scaffolding # 2
+		case types.QueryListWhois:
+			return listWhois(ctx, k)
+		case types.QueryGetWhois:
+			return getWhois(ctx, path[1:], k)
 		default:
 			return nil, sdkerrors.Wrap(sdkerrors.ErrUnknownRequest, "unknown nameservice query endpoint")
 		}

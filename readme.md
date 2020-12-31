@@ -2,6 +2,8 @@
 
 **nameservice** is a blockchain application built using Cosmos SDK and Tendermint and generated with [Starport](https://github.com/tendermint/starport).
 
+Based on: https://tutorials.cosmos.network/nameservice/tutorial/00-intro.html
+
 ## Get started
 
 ```

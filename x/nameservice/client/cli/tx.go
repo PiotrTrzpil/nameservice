@@ -5,10 +5,10 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/PiotrTrzpil/nameservice/x/nameservice/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/PiotrTrzpil/nameservice/x/nameservice/types"
 )
 
 // GetTxCmd returns the transaction commands for this module
@@ -22,7 +22,10 @@ func GetTxCmd(cdc *codec.Codec) *cobra.Command {
 	}
 
 	nameserviceTxCmd.AddCommand(flags.PostCommands(
-    // this line is used by starport scaffolding # 1
+		// this line is used by starport scaffolding # 1
+		GetCmdCreateWhois(cdc),
+		GetCmdSetWhois(cdc),
+		GetCmdDeleteWhois(cdc),
 	)...)
 
 	return nameserviceTxCmd

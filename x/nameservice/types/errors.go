@@ -5,5 +5,6 @@ import (
 )
 
 var (
-	ErrInvalid = sdkerrors.Register(ModuleName, 1, "custom error message")
+	ErrInvalid          = sdkerrors.Register(ModuleName, 1, "custom error message")
+	ErrNameDoesNotExist = sdkerrors.Register(ModuleName, 2, "name does not exist")
 )
